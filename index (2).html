@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TopEaglerServers Data Breach - Public Disclosure</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="alert-bar">Warning - Active ICO Complaint Filed - 10 March 2026 - topeaglerservers.com</div>
+
+<nav>
+  <a class="nav-brand" href="/">TES <span>Breach Disclosure</span></a>
+  <button class="nav-menu-btn" id="menuBtn" aria-label="Toggle menu">&#9776;</button>
+  <div class="nav-links" id="navLinks">
+    <a href="#breach">Breach</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#children">Children</a>
+    <a href="#response">Response</a>
+    <a href="#action">Action</a>
+    <a href="/pp">Privacy Policy</a>
+    <a href="/tos">Terms of Service</a>
+    <a class="nav-discord" href="https://discord.gg/cSjUvGuJ5w" target="_blank" rel="noopener">Discord Updates</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="live-badge"><span class="live-dot"></span> Security Disclosure - 10 March 2026</div>
+    <h1>TopEaglerServers<br/>left <em>27,611 users</em><br/>fully exposed.</h1>
+    <p class="hero-sub">
+      No hacking required. No special tools. A free account and two API endpoints.
+      Every email address, every server record, and children's school emails -
+      all publicly accessible. The platform was notified and chose silence.
+    </p>
+    <div class="tags">
+      <span class="tag tag-red">ICO Complaint Filed</span>
+      <span class="tag tag-red">72-Hour Deadline Missed</span>
+      <span class="tag tag-teal">Breach Confirmed in Writing</span>
+      <span class="tag tag-teal">Children's Data Affected</span>
+      <a class="tag tag-discord" href="https://discord.gg/cSjUvGuJ5w" target="_blank" rel="noopener">Follow on Discord</a>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><div class="n">27,611</div><div class="d">Users Exposed</div></div>
+      <div class="stat"><div class="n">20,564</div><div class="d">Server Records</div></div>
+      <div class="stat"><div class="n">5,880+</div><div class="d">School Domains</div></div>
+      <div class="stat"><div class="n">0</div><div class="d">Users Notified by TES</div></div>
+    </div>
+  </div>
+</div>
+
+<section id="breach">
+  <div class="wrap">
+    <div class="section-label">The Breach</div>
+    <h2>What Happened</h2>
+    <p>On <strong>7 March 2026</strong>, security researcher <strong>Snelsterendier</strong> discovered that TopEaglerServers (topeaglerservers.com) - a browser-based Minecraft (Eaglercraft) hosting platform - had left its entire user and infrastructure database accessible on the open internet with no authentication and no access control of any kind.</p>
+    <p>The platform's backend API on <strong>port 3000</strong> exposed the following administrative endpoints to any user with a free account:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Endpoint</th><th>Data Returned</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">/admin/users</td><td>All 27,611 user records - full email addresses, usernames, admin flags, credit balances, activity timestamps, account IDs</td></tr>
+          <tr><td class="mono">/admin/servers</td><td>All 20,564 server records - live ports, Docker container IDs, real-time memory/CPU/disk stats, payment history</td></tr>
+          <tr><td class="mono">/admin/config</td><td>Full internal system configuration including filesystem paths and operational infrastructure details</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:1.2rem;">Additionally, hidden directories (<strong>EaglerhostCore</strong> and <strong>EaglerXServer</strong>) concealed in the platform's file manager were found to be fully accessible via standard user SFTP - a further exposure of server-side infrastructure.</p>
+
+    <div class="info-box red">
+      <div class="box-label red">No Hacking Required</div>
+      <p>All endpoints were accessible using nothing more than a standard session cookie from a free account. This is not a sophisticated exploit - it is a complete absence of access control on administrative API routes.</p>
+    </div>
+
+    <h3 style="margin-top:2rem;">What Was Exposed</h3>
+    <div class="card-grid">
+      <div class="card"><div class="card-icon">&#128231;</div><h3>Email Addresses</h3><p>Every verified email on the platform. 100% of accounts had emailVerified = true.</p></div>
+      <div class="card"><div class="card-icon">&#128100;</div><h3>Usernames and IDs</h3><p>All usernames and 8-character hex account identifiers - cross-referenceable across both databases.</p></div>
+      <div class="card"><div class="card-icon">&#128179;</div><h3>Credit Balances</h3><p>Live transactional credit balances on all accounts, updating in real time.</p></div>
+      <div class="card"><div class="card-icon">&#128421;</div><h3>Live Server Infrastructure</h3><p>20,564 records including 64-char Docker container IDs, live ports, and real-time resource stats.</p></div>
+      <div class="card"><div class="card-icon">&#9201;</div><h3>Activity Timestamps</h3><p>Account creation dates, last login, and full server start history for every user.</p></div>
+      <div class="card"><div class="card-icon">&#9881;&#65039;</div><h3>JVM Configuration</h3><p>Internal Java startup flags, memory tier requirements, and GC tuning for all server versions.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <div class="section-label">Timeline</div>
+    <h2>Key Events</h2>
+    <p>All times are <strong>UTC+1 (CET)</strong>, as shown in preserved Discord screenshots filed with the ICO.</p>
+    <div class="timeline">
+      <div class="tl">
+        <div class="tl-t">7 March 2026 - 13:52 UTC+1</div>
+        <div class="tl-h">Breach Discovered and Reported</div>
+        <div class="tl-b">Snelsterendier discovers the unauthenticated endpoints and contacts TopEaglerServers via Discord immediately, disclosing in good faith.</div>
+      </div>
+      <div class="tl teal">
+        <div class="tl-t">7 March 2026 - 14:06 UTC+1</div>
+        <div class="tl-h">Controller Acknowledges Breach in Writing</div>
+        <div class="tl-b">Staff member Josh responds: <em>"Thank you for letting us know. We are working on a fix right now."</em> The 72-hour ICO notification clock begins (12:54 UTC).</div>
+      </div>
+      <div class="tl amber">
+        <div class="tl-t">7 March 2026 - 14:46-14:49 UTC+1</div>
+        <div class="tl-h">Controller Denies Legal Obligations</div>
+        <div class="tl-b">When Snelsterendier raises GDPR, Josh claims the law doesn't apply - verbatim quotes preserved in the ICO complaint. See Response section.</div>
+      </div>
+      <div class="tl amber">
+        <div class="tl-t">7 March 2026 - 15:17-15:20 UTC+1</div>
+        <div class="tl-h">Fix Deployed but Confirmed Ineffective</div>
+        <div class="tl-b">Josh asks Snelsterendier to verify. The endpoints remain accessible at 15:20. No further technical update was ever provided.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-t">8 March 2026 - 13:07 UTC+1</div>
+        <div class="tl-h">No Statement. No Response.</div>
+        <div class="tl-b">Snelsterendier asks if a statement will be issued. TopEaglerServers does not reply. No communication received from them since 7 March.</div>
+      </div>
+      <div class="tl purple">
+        <div class="tl-t">10 March 2026 - 12:54 UTC</div>
+        <div class="tl-h">72-Hour ICO Notification Deadline Expires</div>
+        <div class="tl-b">The legally required notification window closes. Zero users have been notified. No ICO report filed by the Controller.</div>
+      </div>
+      <div class="tl teal">
+        <div class="tl-t">10 March 2026</div>
+        <div class="tl-h">Formal ICO Complaint Submitted</div>
+        <div class="tl-b">A full formal complaint with verbatim evidence is submitted to the Information Commissioner's Office by <strong>@snugent120</strong> on behalf of Snelsterendier.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="children">
+  <div class="wrap">
+    <div class="section-label">Elevated Risk</div>
+    <h2>Children's Data Was Exposed</h2>
+    <p>The exposed user database contains a significant number of <strong>K-12 school-issued email addresses</strong>. These are government-issued institutional addresses - there is no plausible non-educational interpretation. These users are students, very likely minors.</p>
+    <p>The following domains were identified in the data sample alone - less than 0.2% of the full 27,611-record dataset.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Domain</th><th>Institution</th><th>Location</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">dallasisd.org</td><td>Dallas Independent School District</td><td>Texas, USA</td></tr>
+          <tr><td class="mono">online.houstonisd.org</td><td>Houston Independent School District</td><td>Texas, USA</td></tr>
+          <tr><td class="mono">lakesideusd.org</td><td>Lakeside Unified School District</td><td>California, USA</td></tr>
+          <tr><td class="mono">students.bentonschools.org</td><td>Benton School District</td><td>Arkansas, USA</td></tr>
+          <tr><td class="mono">brssd.org</td><td>Belmont-Redwood Shores School District</td><td>California, USA</td></tr>
+          <tr><td class="mono">student.uplifteducation.org</td><td>Uplift Education Charter Schools</td><td>Texas, USA</td></tr>
+          <tr><td class="mono">msd19.org</td><td>Malheur School District 19</td><td>Oregon, USA</td></tr>
+          <tr><td class="mono">methow.org</td><td>Methow Valley School District</td><td>Washington, USA</td></tr>
+          <tr><td class="mono">albany.k12.ny.us</td><td>Albany City School District</td><td>New York, USA</td></tr>
+          <tr><td class="mono">myoneclay.com</td><td>Clay County District Schools</td><td>Florida, USA</td></tr>
+          <tr><td class="mono">masonohioschools.com</td><td>Mason City School District</td><td>Ohio, USA</td></tr>
+          <tr><td class="mono">edu.leonschools.net</td><td>Leon County Schools</td><td>Florida, USA</td></tr>
+          <tr><td class="mono">student.vigoschools.org</td><td>Vigo County School Corporation</td><td>Indiana, USA</td></tr>
+          <tr><td class="mono">hcarockwall.org</td><td>Heritage Christian Academy</td><td>Texas, USA</td></tr>
+          <tr><td class="mono">student.smusd.us</td><td>San Marcos Unified School District</td><td>California, USA</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box red" style="margin-top:1.5rem;">
+      <div class="box-label red">Legal Implications</div>
+      <p>Children's data attracts heightened obligations under <strong>Article 8 UK GDPR</strong>, the <strong>ICO's Age Appropriate Design Code</strong>, and US federal law including <strong>COPPA</strong> (15 U.S.C. Section 6501 et seq.). TopEaglerServers implemented no meaningful age verification and has taken no steps to protect or notify the children whose data was exposed.</p>
+    </div>
+  </div>
+</section>
+
+<section id="response">
+  <div class="wrap">
+    <div class="section-label">Controller Conduct</div>
+    <h2>How TopEaglerServers Responded</h2>
+    <p>When Snelsterendier raised UK GDPR obligations at 14:28 UTC+1 on 7 March 2026, staff member Josh issued the following responses - preserved verbatim and submitted as evidence to the ICO:</p>
+
+    <div class="quote">
+      <div class="who">Josh - 14:46, 7 March 2026 (UTC+1)</div>
+      <span class="em-red">"We aren't European so that law doesn't apply to us but we'll still investigate and resolve this issue."</span>
+    </div>
+
+    <p>Snelsterendier immediately corrected this. Josh then added:</p>
+
+    <div class="quote">
+      <div class="who">Josh - 14:49, 7 March 2026 (UTC+1)</div>
+      <span class="em-red">"We aren't a registered business and don't target EU residents."</span>
+    </div>
+
+    <p>Both claims are legally incorrect and contradicted by TopEaglerServers' own documents:</p>
+    <div class="card-grid" style="margin-top:1rem;">
+      <div class="card">
+        <div class="card-icon">&#9878;&#65039;</div>
+        <h3>"Not European"</h3>
+        <p>UK GDPR applies based on the location of data subjects, not the controller's nationality. Their own <a href="/tos">Terms of Service</a> states the platform is governed by UK law.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#128203;</div>
+        <h3>"Not a Registered Business"</h3>
+        <p>UK GDPR and the DPA 2018 apply to natural persons processing others' data - corporate status is irrelevant.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#128272;</div>
+        <h3>Privacy Policy Promise Broken</h3>
+        <p>Their own <a href="/pp">Privacy Policy</a> states: <em>"we will notify you in a timely manner, as required by applicable laws."</em> Not honoured.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="action">
+  <div class="wrap">
+    <div class="section-label">What Was Done</div>
+    <h2>Action Taken</h2>
+
+    <div class="info-box teal">
+      <div class="box-label teal">Formal ICO Complaint Submitted - 10 March 2026</div>
+      <p>A full formal complaint has been submitted to the <strong>Information Commissioner's Office (ICO)</strong> by <strong>@snugent120</strong> on behalf of Snelsterendier. The complaint includes verbatim evidence of the GDPR denials, full breach disclosure, and a confirmed record of the Controller's total inaction. The ICO can investigate, issue enforcement notices, and impose penalties of up to £17.5 million or 4% of global turnover.</p>
+    </div>
+
+    <p style="margin-top:1.2rem;">Because TopEaglerServers refused to notify any of its 27,611 users, <strong>@snugent120</strong> and Snelsterendier initiated an independent notification campaign across Discord communities frequented by the Eaglercraft player base - performing the function the Controller is legally required to fulfil under <strong>Article 34 UK GDPR</strong>.</p>
+
+    <h3 style="margin-top:2rem;">GDPR Articles Violated</h3>
+    <div class="table-wrap" style="margin-top:0.8rem;">
+      <table>
+        <thead><tr><th>Article</th><th>Violation</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">Art. 5(1)(f)</td><td>Integrity and confidentiality - no access control on admin API routes</td></tr>
+          <tr><td class="mono">Art. 32</td><td>Security of processing - complete absence of appropriate technical measures</td></tr>
+          <tr><td class="mono">Art. 33</td><td>72-hour notification to supervisory authority - missed entirely</td></tr>
+          <tr><td class="mono">Art. 34</td><td>Communication to data subjects - zero users notified</td></tr>
+          <tr><td class="mono">Art. 5(1)(a)</td><td>Lawfulness, fairness, transparency - Privacy Policy promise broken</td></tr>
+          <tr><td class="mono">Art. 5(1)(c)</td><td>Data minimisation - excessive technical data retained and exposed</td></tr>
+          <tr><td class="mono">Art. 8</td><td>Children's consent - no age verification or parental consent mechanism</td></tr>
+          <tr><td class="mono">Art. 13/14</td><td>Transparency - controller actively misrepresented its legal obligations</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="do">
+  <div class="wrap">
+    <div class="section-label">For Affected Users</div>
+    <h2>What You Should Do</h2>
+    <p>If you have ever registered on <strong>topeaglerservers.com</strong>, your email address and account data were exposed.</p>
+    <ul class="step-list">
+      <li>
+        <div class="step-n">1</div>
+        <div class="step-body"><strong>Watch for phishing</strong><p>Be suspicious of any email referencing TopEaglerServers, Eaglercraft, or your username. Your email is now in the public domain.</p></div>
+      </li>
+      <li>
+        <div class="step-n">2</div>
+        <div class="step-body"><strong>Change any reused passwords</strong><p>If you reuse the same password on other accounts that share this email, change them immediately.</p></div>
+      </li>
+      <li>
+        <div class="step-n">3</div>
+        <div class="step-body"><strong>Exercise your GDPR rights</strong><p>Request access to or deletion of your data at <strong>contact@topeaglerservers.com</strong>.</p></div>
+      </li>
+      <li>
+        <div class="step-n">4</div>
+        <div class="step-body"><strong>File a complaint with the ICO</strong><p>Submit your own complaint at <strong>ico.org.uk/make-a-complaint</strong>. More complaints means stronger regulatory pressure.</p></div>
+      </li>
+      <li>
+        <div class="step-n">5</div>
+        <div class="step-body"><strong>Share this page</strong><p>Most affected users have not been told anything. If you know someone who uses the platform, send them this link.</p></div>
+      </li>
+    </ul>
+
+    <div class="discord-cta">
+      <div class="discord-cta-text">
+        <strong>Follow the Investigation on Discord</strong>
+        <p>Join our server for live updates, new findings, and to connect with others affected by this breach.</p>
+      </div>
+      <a class="discord-btn" href="https://discord.gg/cSjUvGuJ5w" target="_blank" rel="noopener">Join Discord</a>
+    </div>
+  </div>
+</section>
+
+<section id="thanks">
+  <div class="wrap">
+    <div class="section-label">Acknowledgements</div>
+    <h2>Thanks To</h2>
+    <p>This disclosure and investigation would not have been possible without the following - who gave their time to ensure 27,611 people were not left in the dark.</p>
+    <div class="thanks-grid">
+      <div class="thanks-card">
+        <div class="role">Security Researcher</div>
+        <div class="name">@snelstrenedier</div>
+        <p>For discovering the vulnerability, disclosing it responsibly, and having the integrity to ensure it was taken further when the platform refused to act. The entire process started here.</p>
+      </div>
+      <div class="thanks-card">
+        <div class="role">Legal and Complaint</div>
+        <div class="name">@snugent120</div>
+        <p>For compiling and submitting the formal ICO complaint, and ensuring the Controller's inaction is on regulatory record.</p>
+      </div>
+      <div class="thanks-card">
+        <div class="role">Community Spreaders</div>
+        <div class="name">Our Broadcasters</div>
+        <p>To everyone who helped spread this message across Discord servers and Eaglercraft communities - ensuring that the users TopEaglerServers chose to stay silent towards were reached anyway.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>site made by <strong>@snugent120</strong> on behalf of security researcher <strong>@snelstrenedier</strong>.</p>
+    <p style="margin-top:0.5rem;">
+      <a href="/pp">Privacy Policy</a> &nbsp;&#183;&nbsp;
+      <a href="/tos">Terms of Service</a> &nbsp;&#183;&nbsp;
+      <a href="https://discord.gg/cSjUvGuJ5w" target="_blank" rel="noopener">Discord Updates</a>
+    </p>
+    <p style="margin-top:0.8rem; font-size:0.72rem; color:#40405a;">ICO complaint submitted 10 March 2026 - Published in the public interest.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
